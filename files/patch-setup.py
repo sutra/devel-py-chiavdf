@@ -35,11 +35,9 @@
  
      setup(
          name="chiavdf",
-@@ -274,11 +275,12 @@ else:
-         long_description=open("README.md").read(),
+@@ -275,10 +276,10 @@ else:
          long_description_content_type="text/markdown",
          url="https://github.com/Chia-Network/chiavdf",
-+        scripts=['tools/gen_pprods.py'],
          setup_requires=["pybind11>=2.5.0"],
 -        ext_modules=[CMakeExtension("chiavdf", "src")],
 -        cmdclass=dict(

@@ -17,17 +17,16 @@
          ],
          library_dirs=["mpir_gc_x64"],
          libraries=["mpir"],
-@@ -232,7 +233,8 @@ class BuildExt(build_ext):
+@@ -232,7 +233,7 @@ class BuildExt(build_ext):
          link_opts = self.l_opts.get(ct, [])
          if ct == "unix":
              opts.append('-DVERSION_INFO="%s"' % self.distribution.get_version())
 -            opts.append(cpp_flag(self.compiler))
 +            opts.append('-DCMAKE_CXX_FLAGS=%s' % cpp_flag(self.compiler))
-+            opts.append('-I/usr/local/include')
              if has_flag(self.compiler, "-fvisibility=hidden"):
                  opts.append("-fvisibility=hidden")
          elif ct == "msvc":
-@@ -262,7 +264,6 @@ if platform.system() == "Windows":
+@@ -262,7 +263,6 @@ if platform.system() == "Windows":
      )
  else:
      build.sub_commands.append(("build_hook", lambda x: True))  # type: ignore
@@ -35,7 +34,7 @@
  
      setup(
          name="chiavdf",
-@@ -275,10 +276,10 @@ else:
+@@ -275,10 +275,10 @@ else:
          long_description_content_type="text/markdown",
          url="https://github.com/Chia-Network/chiavdf",
          setup_requires=["pybind11>=2.5.0"],

@@ -1,0 +1,11 @@
+--- src/Makefile.vdf-client.orig	2021-09-26 04:41:49 UTC
++++ src/Makefile.vdf-client
+@@ -25,6 +25,8 @@ LDFLAGS += -fsanitize=thread
+ CXXFLAGS += -g -fsanitize=thread
+ endif
+ 
++CXXFLAGS += "-I/usr/local/include"
++
+ .PHONY: all clean
+ 
+ all: vdf_client prover_test 1weso_test 2weso_test vdf_bench

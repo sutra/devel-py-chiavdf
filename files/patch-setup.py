@@ -26,7 +26,7 @@
              if has_flag(self.compiler, "-fvisibility=hidden"):
                  opts.append("-fvisibility=hidden")
          elif ct == "msvc":
-@@ -262,7 +263,6 @@ if platform.system() == "Windows":
+@@ -262,10 +263,10 @@ if platform.system() == "Windows":
      )
  else:
      build.sub_commands.append(("build_hook", lambda x: True))  # type: ignore
@@ -34,7 +34,11 @@
  
      setup(
          name="chiavdf",
-@@ -275,10 +275,10 @@ else:
++        version="1.0.3",
+         author="Florin Chirica",
+         author_email="florin@chia.net",
+         description="Chia vdf verification (wraps C++)",
+@@ -275,10 +276,9 @@ else:
          long_description_content_type="text/markdown",
          url="https://github.com/Chia-Network/chiavdf",
          setup_requires=["pybind11>=2.5.0"],
@@ -47,5 +51,5 @@
 +            "build_ext": BuildExt, "build_hook": build_hook
 +        },
          zip_safe=False,
-         use_scm_version={"fallback_version": "unknown-no-.git-directory"},
+-        use_scm_version={"fallback_version": "unknown-no-.git-directory"},
      )

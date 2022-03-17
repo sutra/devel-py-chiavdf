@@ -34,7 +34,7 @@
  
      setup(
          name="chiavdf",
-+        version="1.0.3",
++        version="1.0.5",
          author="Florin Chirica",
          author_email="florin@chia.net",
          description="Chia vdf verification (wraps C++)",

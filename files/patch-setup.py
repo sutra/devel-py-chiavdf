@@ -1,4 +1,4 @@
---- setup.py.orig	2021-08-26 20:29:35 UTC
+--- setup.py.orig	2022-07-05 15:12:48 UTC
 +++ setup.py
 @@ -76,7 +76,7 @@ def invoke_make(**kwargs):
      subprocess.check_output("make -C src -f Makefile.vdf-client", shell=True)
@@ -26,7 +26,7 @@
              if has_flag(self.compiler, "-fvisibility=hidden"):
                  opts.append("-fvisibility=hidden")
          elif ct == "msvc":
-@@ -262,10 +263,10 @@ if platform.system() == "Windows":
+@@ -261,10 +262,10 @@ if platform.system() == "Windows":
      )
  else:
      build.sub_commands.append(("build_hook", lambda x: True))  # type: ignore
@@ -34,11 +34,11 @@
  
      setup(
          name="chiavdf",
-+        version="1.0.5",
++        version="1.0.6",
          author="Florin Chirica",
          author_email="florin@chia.net",
          description="Chia vdf verification (wraps C++)",
-@@ -275,10 +276,9 @@ else:
+@@ -274,9 +275,9 @@ else:
          long_description_content_type="text/markdown",
          url="https://github.com/Chia-Network/chiavdf",
          setup_requires=["pybind11>=2.5.0"],
@@ -51,5 +51,4 @@
 +            "build_ext": BuildExt, "build_hook": build_hook
 +        },
          zip_safe=False,
--        use_scm_version={"fallback_version": "unknown-no-.git-directory"},
      )
